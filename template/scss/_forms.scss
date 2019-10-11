@@ -1,0 +1,317 @@
+/* forms */
+.error {
+    color: $error !important;
+    border-color: $error !important;
+}
+.success {
+    color: $success !important;
+    border-color: $success !important;
+}
+.disabled {
+    color: $gray !important;
+    border-color: $gray !important;
+    cursor: default !important;
+}
+input.input-text {
+    width: 100%;
+    border-radius: 0;
+    transition: color $d $f, background-color $d $f, border-color $d $f;
+    will-change: color, background-color, border-color;
+}
+textarea.textarea {
+    @extend input.input-text;
+    font-family: $fontFamily;
+    overflow: auto;
+    height: auto;
+}
+select.select {
+    appearance: none;
+    border-radius: 0;
+}
+select.select::-ms-expand {
+    display: none;
+}
+.checkbox,
+.radio {
+    display: block;
+    input {
+        display: none;
+        &:checked + label {
+        }
+        &:disabled + label {
+        }
+    }
+    label {
+        user-select: none;
+    }
+}
+a.button,
+input.button,
+button.button,
+span.button {
+    color: $text;
+    text-align: center;
+    border: 0.375vw solid $text;
+    border-radius: 0.75vw;
+    font-size: 2.75vw;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: $t;
+    display: inline-block;
+    min-width: 20vw;
+    padding: 0 1.25vw;
+    min-height: 7.5vw;
+    line-height: 6.75vw;
+    transition: color $d $f, background-color $d $f, border-color $d $f;
+    will-change: color, background-color, border-color;
+    &:hover {
+        color: $text;
+        text-decoration: none;
+        background-color: $w;
+    }
+    &:focus {
+        color: $text;
+        text-decoration: none;
+        background-color: $w;
+        outline: none;
+        box-shadow: 0 0 0 0.375vw rgba($w, 0.8);
+    }
+    &-big {
+        padding: 3vw 1.25vw 0;
+        min-height: 17.5vw;
+        line-height: 1.2;
+        border-width: 0.625vw;
+    }
+    &-medium {
+        padding: 3vw 1.25vw 0;
+        min-height: 17.5vw;
+        line-height: 1.2;
+        border-width: 0.625vw;
+    }
+    &-bold {
+        font-weight: bold;
+        font-size: 3.75vw;
+        border-width: 0.625vw;
+        min-height: 10vw;
+        line-height: 8.75vw;
+    }
+    &-medium-bold {
+        font-weight: bold;
+        font-size: 3.75vw;
+        border-width: 0.625vw;
+        min-height: 15vw;
+        line-height: 13.75vw;
+    }
+}
+input.button,
+button.button {
+    line-height: normal;
+}
+.button-big-title {
+    font-weight: bold;
+    font-size: 3.75vw;
+    &.no-icon {
+        display: block;
+        padding-top: 2.9vw;
+    }
+}
+.button-note {
+    padding-top: 3vw;
+    display: block;
+    max-width: 31.25vw;
+    font-size: 2.75vw;
+    line-height: 1.32;
+    font-weight: 600;
+    span.expand {
+        //background: #f00;
+        display: block;
+        margin-left: -4vw;
+        margin-right: -4vw;
+    }
+}
+.button-medium-title {
+    font-weight: bold;
+    font-size: 3.125vw;
+}
+.card-icons {
+    padding-top: 2.5vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: -1.4375vw;
+    margin-right: -1.4375vw;
+}
+.card-icon-cell {
+    padding: 0 1.4375vw 1.4375vw;
+}
+.card-icon {
+    display: block;
+    width: 6.75vw;
+    height: 4.375vw;
+    border-radius: 0.375vw;
+    background: $tr;
+    margin: 0 auto;
+    box-shadow: 0 0.375vw 0.75vw rgba($black, 0.16);
+    overflow: hidden;
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0;
+    }
+}
+.vipps-logo {
+    padding-top: 2.1vw;
+    display: block;
+    margin: 0 auto;
+    max-width: 13.25vw;
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+}
+.icon {
+    display: block;
+    margin: 0 auto;
+    max-width: 5vw;
+    padding-top: 1.1vw;
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+    &-inventory {
+        max-width: 3.75vw;
+    }
+    &-maintenance {
+        max-width: 5.71425vw;
+    }
+    &-purchase {
+        max-width: 5.3125vw;
+    }
+    &-service {
+        max-width: 6.625vw;
+    }
+    &-terminal {
+        max-width: 6.4285vw;
+    }
+    &-languages {
+        max-width: 10vw;
+    }
+    &-check-magazine {
+        max-width: 5vw;
+    }
+    &-loading-process {
+        max-width: 5vw;
+    }
+}
+.pad {
+    display: flex;
+    align-items: flex-start;
+    margin-left: -0.1875vw;
+    margin-right: -0.1875vw;
+    &-form {
+        max-width: 38.625vw;
+        margin: 3vw auto;
+        position: relative;
+        label.error {
+            position: absolute;
+            top: 0.25vw;
+            border-radius: 0.25vw;
+            left: 0;
+            right: 0;
+            padding: 1vw;
+            text-align: center;
+            color: $w !important;
+            text-transform: uppercase;
+            font-size: 2vw;
+            background: $red;
+            transform: translateY(-100%);
+        }
+    }
+    .button {
+        height: 9.375vw;
+        border-radius: 0.25vw;
+    }
+    .number {
+        background-color: $tr !important;
+        font-size: 6.25vw;
+        font-weight: bold;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    .number-ok {
+        min-height: 19.125vw;
+        background: $tr url('../upload/ok.svg') 50% 50% no-repeat;
+        background-size: 70%;
+    }
+    .number-reset {
+        background: $tr url('../upload/reset.svg') 50% 50% no-repeat;
+        background-size: 64%;
+    }
+    .number-delete {
+        background: $tr url('../upload/backspace.svg') 50% 50% no-repeat;
+        background-size: 70%;
+    }
+    .number-reset,
+    .number-delete,
+    .number-ok {
+        text-indent: -9999px;
+        background-color: $tr !important;
+    }
+    span.button {
+        cursor: default;
+        background-color: $tr !important;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    &-nums {
+        flex: 0 0 75%;
+        max-width: 75%;
+        display: flex;
+        flex-wrap: wrap;
+        .pad-cell {
+            padding: 0.1875vw;
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+        }
+        .button {
+            width: 100%;
+            min-width: 0;
+        }
+    }
+    &-nav {
+        flex: 0 0 25%;
+        max-width: 25%;
+        display: flex;
+        flex-wrap: wrap;
+        .pad-cell {
+            padding: 0.1875vw;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        .button {
+            width: 100%;
+            min-width: 0;
+        }
+    }
+    &-input {
+        border: 0.375vw solid $text;
+        border-radius: 0.25vw;
+        height: 9.375vw;
+        width: 100%;
+        text-align: center;
+        background: rgba($w, 0.8);
+        font-size: 6.25vw;
+        font-weight: bold;
+        color: $text;
+        &.error {
+            color: $text !important;
+        }
+    }
+}

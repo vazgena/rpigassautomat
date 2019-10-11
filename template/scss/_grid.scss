@@ -1,0 +1,26 @@
+/* grid */
+.container {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+.main-global {
+    min-height: 100%;
+    overflow: hidden;
+    background: $s;
+    background: linear-gradient(0deg, $s 0%, #04cfad 100%);
+}
+.main-grid {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: 17.25vw auto 9.5vw;
+    &.grid-small-header {
+        grid-template-rows: 9.5vw auto 9.5vw;
+    }
+    &.grid-content-only {
+        grid-template-rows: auto;
+    }
+    &.grid-no-header {
+        grid-template-rows: auto 9.5vw;
+    }
+}

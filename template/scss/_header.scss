@@ -1,0 +1,24 @@
+/* header */
+.header-columns {
+    display: flex;
+    justify-content: center;
+    // background: #00f;
+}
+.header-left,
+.header-right {
+    flex: 0 0 12.5vw;
+    max-width: 12.5vw;
+    min-height: 1px;
+}
+.welcome {
+    padding-top: 2.25vw;
+    text-transform: uppercase;
+    font-size: 7.5vw;
+    line-height: 1;
+    text-align: center;
+    &-title {
+    }
+    &-subtitle {
+        font-weight: 900;
+    }
+}
