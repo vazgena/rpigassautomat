@@ -1,0 +1,210 @@
+/* content */
+.content {
+    // background: #f0f;
+}
+.content {
+    &-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        //background: #f00;
+        margin-left: -4vw;
+        margin-right: -4vw;
+        padding: 2.5vw 0;
+        &-header {
+            flex: 0 0 100%;
+            max-width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 0vw 13% 9vw;
+            font-size: 5vw;
+            line-height: 1.275;
+            font-weight: bold;
+            &.small-padding {
+                padding-bottom: 6.5vw;
+            }
+        }
+        &-cell {
+            padding: 2.5vw 5vw 2.5vw;
+            text-align: center;
+            .button {
+                min-width: 31.25vw;
+                &-medium {
+                    min-width: 35vw;
+                }
+                &-bold {
+                    min-width: 25vw;
+                }
+                &-medium-bold {
+                    min-width: 50vw;
+                }
+            }
+            &-full {
+                .button {
+                    min-width: 80vw;
+                }
+            }
+        }
+        &-confirm {
+            &-title {
+                padding: 1vw 10% 2vw;
+                text-align: center;
+                flex: 0 0 100%;
+                max-width: 100%;
+                font-size: 4.375vw;
+                font-weight: bold;
+                line-height: 1.29;
+            }
+            &-note {
+                padding: 2.875vw 20% 3vw;
+                text-align: center;
+                flex: 0 0 100%;
+                max-width: 100%;
+                line-height: 1.32;
+                font-size: 3.125vw;
+                font-weight: bold;
+            }
+        }
+    }
+    &-flex {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+    }
+    &-center {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+.insert {
+    &-card {
+        text-align: center;
+        padding: 0 2vw 8vw;
+        &-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 1.2;
+            font-size: 7.5vw;
+        }
+        &-icon {
+            padding-top: 4.5vw;
+            margin: 0 auto;
+            max-width: 24vw;
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
+.help,
+.wait {
+    &-block {
+        padding: 3vw 0px;
+        text-align: center;
+    }
+    &-subtitle,
+    &-title {
+        line-height: 1.29;
+        font-size: 5.625vw;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 0vw 5% 6.5vw;
+    }
+    &-subtitle {
+        padding-top: 3.75vw;
+        padding-bottom: 0;
+    }
+}
+.help-title {
+    padding-bottom: 2.75vw;
+}
+.icon {
+    &-help,
+    &-wait {
+        max-width: 18.75vw;
+    }
+}
+.products {
+    padding: 3vw 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: -1.5625vw;
+    margin-right: -1.5625vw;
+    &-title {
+        padding: 0 10% 3.75vw;
+        text-align: center;
+        flex: 0 0 100%;
+        max-width: 100%;
+        font-size: 5vw;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1.275;
+    }
+}
+.product {
+    padding: 0 3.0625vw;
+    .button {
+        border-width: 0.625vw;
+        padding: 1.25vw 0;
+        display: block;
+        max-width: 25vw;
+    }
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    &-subtitle {
+        padding-top: 1.625vw;
+        line-height: 1;
+        font-size: 5vw;
+        font-weight: bold;
+        text-transform: uppercase;
+        display: block;
+    }
+    &-x2 {
+        padding-top: 1.25vw;
+        padding-bottom: 1.25vw;
+        .button {
+            max-width: 22.5vw;
+        }
+        .product-subtitle {
+            font-size: 3.5vw;
+        }
+    }
+    &-x3 {
+        padding: 1.25vw 2.8125vw;
+        .button {
+            min-width: 0;
+            max-width: 20vw;
+        }
+        .product-subtitle {
+            font-size: 2.75vw;
+        }
+    }
+    &-x4 {
+        padding: 5vw 1.75vw;
+        .button {
+            min-width: 0;
+            max-width: 18.125vw;
+        }
+        .product-subtitle {
+            font-size: 2.75vw;
+        }
+    }
+    &-x5 {
+        padding: 3.75vw 1.5625vw;
+        .button {
+            min-width: 0;
+            max-width: 17vw;
+        }
+        .product-subtitle {
+            font-size: 2.5vw;
+        }
+    }
+}
+
