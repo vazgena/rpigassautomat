@@ -37,8 +37,32 @@ def p8_product_option_3():
 
 @app.route('/p9-product-option-1')
 def p9_product_option_1():
-    return render_template('p9-product-option-1.html') 
+    return render_template('p9-product-option-1.html')
     
+@app.route('/p10-right-door-1-open-warning')
+def p10_right_door_1_open_warning():
+    return render_template('p10-right-door-1-open-warning.html')      
+
+@app.route('/p11-left-door-1-open-warning')
+def p11_left_door_1_open_warning():
+    return render_template('p11-left-door-1-open-warning.html') 
+        
+@app.route('/p12-right-door-2-open-warning')
+def p12_right_door_2_open_warning():
+    return render_template('p12-right-door-2-open-warning.html') 
+    
+@app.route('/p13-left-door-2-open-warning')
+def p13_left_door_2_open_warning():
+    return render_template('p13-left-door-2-open-warning.html') 
+    
+@app.route('/p14-right-door-3-open-warning')
+def p14_right_door_3_open_warning():
+    return render_template('p14-right-door-3-open-warning.html') 
+    
+@app.route('/p15-left-door-3-open-warning')
+def p15_left_door_3_open_warning():
+    return render_template('p15-left-door-3-open-warning.html')            
+            
 @app.route('/p16-gas-type')
 def p16_gas_type():
     return render_template('p16-gas-type.html') 
@@ -74,7 +98,96 @@ def p23_inventory_main():
 @app.route('/p24-sensor-test')
 def p24_sensor_test():
     return render_template('p24-sensor-test.html') 
-  
-                     					
+    
+@app.route('/p25-col-1-left')
+def p25_col_1_left():
+    return render_template('p25-col-1-left.html')  
+    
+@app.route('/p26-col-2-left')
+def p26_col_2_left():
+    return render_template('p26-col-2-left.html') 
+    
+@app.route('/p27-col-3-left')
+def p27_col_3_left():
+    return render_template('p27-col-3-left.html')
+    
+@app.route('/p28-col-4-left')
+def p28_col_4_left():
+    return render_template('p28-col-4-left.html') 
+     
+@app.route('/p29-col-5-left')
+def p29_col_5_left():
+    return render_template('p29-col-5-left.html')    
+    
+@app.route('/p30-col-6-left')
+def p30_col_6_left():
+    return render_template('p30-col-6-left.html')
+    
+
+@app.route('/p31-col-7-left')
+def p31_col_7_left():
+    return render_template('p31-col-7-left.html') 
+    
+
+@app.route('/p32-col-8-left')
+def p32_col_8_left():
+    return render_template('p32-col-8-left.html') 
+    
+
+@app.route('/p33-col-1-right')
+def p33_col_1_right():
+    return render_template('p33-col-1-right.html') 
+    
+
+@app.route('/p34-col-2-right')
+def p34_col_2_right():
+    return render_template('p34-col-2-right.html') 
+    
+
+@app.route('/p35-col-3-right')
+def p35_col_3_right():
+    return render_template('p35-col-3-right.html') 
+    
+
+@app.route('/p36-col-4-right')
+def p36_col_4_right():
+    return render_template('p36-col-4-right.html') 
+    
+
+@app.route('/p37-col-5-right')
+def p37_col_5_right():
+    return render_template('p37-col-5-right.html') 
+    
+
+@app.route('/p38-col-6-right')
+def p38_col_6_right():
+    return render_template('p38-col-6-right.html') 
+    
+
+@app.route('/p39-col-7-right')
+def p39_col_7_right():
+    return render_template('p39-col-7-right.html') 
+    
+
+@app.route('/p40-col-8-right')
+def p40_col_8_right():
+    return render_template('p40-col-8-right.html') 
+    
+
+@app.route('/p42-service-screen')
+def p42_service_screen():
+    return render_template('p42-service-screen.html') 
+    
+
+@app.route('/p43-choose-valve-type')
+def p43_choose_valve_type():
+    return render_template('p43-choose-valve-type.html') 
+    
+
+@app.route('/p45-sales-conditions')
+def p45_sales_conditions():
+    return render_template('p45-sales-conditions.html')                                                            
+    
+                				
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, threaded=True)
