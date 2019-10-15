@@ -1,7 +1,10 @@
 graph TD
 1[index.html]
-11(check if ProductX+valve type available in inventory M/F)
-11-- Available -->14[p58-payment-summary.html]
+11[p45-sales-conditions.html]
+11-- Accepted -->30[p47-customer-details]
+30-- Cancel -->1
+30-- Send -->31[p48-verify-sms.html]
+50-->14[p58-payment-summary.html]
 14-- Cancel BTN -->1
 14-- Continue --> 15[p61-write-your-pin.html]
 15-- Cancel BTN --> 1
