@@ -123,71 +123,105 @@ def p29_col_5_left():
 def p30_col_6_left():
     return render_template('p30-col-6-left.html')
     
-
 @app.route('/p31-col-7-left')
 def p31_col_7_left():
     return render_template('p31-col-7-left.html') 
     
-
 @app.route('/p32-col-8-left')
 def p32_col_8_left():
     return render_template('p32-col-8-left.html') 
     
-
 @app.route('/p33-col-1-right')
 def p33_col_1_right():
     return render_template('p33-col-1-right.html') 
     
-
 @app.route('/p34-col-2-right')
 def p34_col_2_right():
     return render_template('p34-col-2-right.html') 
     
-
 @app.route('/p35-col-3-right')
 def p35_col_3_right():
     return render_template('p35-col-3-right.html') 
     
-
 @app.route('/p36-col-4-right')
 def p36_col_4_right():
     return render_template('p36-col-4-right.html') 
     
-
 @app.route('/p37-col-5-right')
 def p37_col_5_right():
     return render_template('p37-col-5-right.html') 
     
-
 @app.route('/p38-col-6-right')
 def p38_col_6_right():
     return render_template('p38-col-6-right.html') 
     
-
 @app.route('/p39-col-7-right')
 def p39_col_7_right():
     return render_template('p39-col-7-right.html') 
     
-
 @app.route('/p40-col-8-right')
 def p40_col_8_right():
     return render_template('p40-col-8-right.html') 
     
-
+@app.route('/p41-no-empty-place-customer')
+def p41_no_empty_place_customer():
+    return render_template('p41-no-empty-place-customer.html') 
+    
 @app.route('/p42-service-screen')
 def p42_service_screen():
     return render_template('p42-service-screen.html') 
     
-
 @app.route('/p43-choose-valve-type')
 def p43_choose_valve_type():
     return render_template('p43-choose-valve-type.html') 
     
-
 @app.route('/p45-sales-conditions')
 def p45_sales_conditions():
-    return render_template('p45-sales-conditions.html')                                                            
+    return render_template('p45-sales-conditions.html') 
+
+@app.route('/p61-write-your-pin')
+def p61_write_your_pin():
+    return render_template('p61-write-your-pin.html')
     
-                				
+@app.route('/p62-pin-code-error')
+def p62_pin_code_error():
+    return render_template('p62-pin-code-error.html')
+
+@app.route('/p63-payment-denied')
+def p63_payment_denied():
+    return render_template('p63-payment-denied.html')
+    
+@app.route('/p64-deliver-tank')
+def p64_deliver_tank():
+    return render_template('p64-deliver-tank.html')
+                                                                                
+@app.route('/p65-put-the-empty-container')
+def p65_put_the_empty_container():
+    return render_template('p65-put-the-empty-container.html')
+    
+@app.route('/p66-door-blocked')
+def p66_door_blocked():
+    return render_template('p66-door-blocked.html')
+    
+@app.route('/p67-cylinder-detection')
+def p67_cylinder_detection():
+    return render_template('p67-cylinder-detection.html')
+    
+@app.route('/p68-cylinder-not-recognized')
+def p68_cylinder_not_recognized():
+    return render_template('p68-cylinder-not-recognized.html')  
+    
+@app.route('/p49-email-receipt')
+def p49_email_receipt():
+    return render_template('p49-email-receipt.html')  
+    
+@app.route('/p50-error-contract-code')
+def p50_error_contract_code():
+    return render_template('p50-error-contract-code.html')  
+    
+@app.route('/p51-sent-email-confirmation')
+def p51_sent_email_confirmation():
+    return render_template('p51-sent-email-confirmation.html')               
+                                  					
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, threaded=True)

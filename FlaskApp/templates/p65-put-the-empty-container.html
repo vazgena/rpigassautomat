@@ -11,34 +11,16 @@
 </head>
 <body class="no-js">
     <main class="main-global screen-intro">
-		<form >
-		<button>True</button>
-		</form>
-		<form >
-		<button>False</button>
-		</form>
         <div class="main-grid grid-no-header">
             <section class="content">
                 <div class="content-flex">
                     <div class="content-center">
-                        <div class="products">
-                            <div class="products-title">
-                                Choose the type of valve you&nbsp;want
-                            </div>
-                            <div class="product product-x2">
-                                <a class="button" href="#">
-                                    <img src="{{ url_for('static',filename='upload/valve1.png')}}" alt="">
-                                    <span class="product-subtitle">Standard</span>
-                                </a>
-                            </div>
-                            <div class="product product-x2">
-                                <a class="button" href="#">
-                                    <img src="{{ url_for('static',filename='upload/valve2.png')}}" alt="">
-                                    <span class="product-subtitle">Industrial</span>
-                                </a>
-                            </div>
+                        <div class="wait-door">
+                            <div class="wait-door-title">Wait until the door opens</div>
+                            <div class="icon wait-door-icon rotation"><img src="{{ url_for('static',filename='upload/loading-process.svg')}}" alt=""></div>
+                            <div class="wait-door-note">put the empty container completely in and close the door</div>
                         </div>
-                        <!-- /.products -->
+                        <!-- /.no-space -->
                     </div>
                     <!-- /.content-center -->
                 </div>
@@ -49,7 +31,7 @@
                 <div class="container">
                     <div class="footer-columns">
                         <div class="footer-nav-left">
-                            <a href="/" class="button">Back</a>
+                            <a href="#" class="button">Cancel</a>
                         </div>
                         <!-- /.footer-nav-left -->
                         <div class="footer-center">

@@ -11,23 +11,26 @@
 </head>
 <body class="no-js">
     <main class="main-global screen-intro">
-		<form action="/p2-insert-card">
-		<button>True</button>
-		</form>
-		<form action="/p10-right-door-1-open-warning">
-		<button>False</button>
-		</form>
         <div class="main-grid grid-content-only">
             <section class="content">
                 <div class="content-flex">
                     <div class="content-center">
-                        <div class="close-door">
-                            <div class="close-door-title">Please close top right door</div>
-                            <div class="close-door-icon">
-                                <img src="{{ url_for('static',filename='upload/close-door.svg')}}" alt="">
+                        <div class="content-nav">
+                            <div class="content-nav-header">Would you like us to e-mail your receipt?</div>
+                            <div class="content-nav-cell">
+                                <a href="#" class="button button-bold">
+                                    NO
+                                </a>
                             </div>
+                            <!-- /.content-nav-cell -->
+                            <div class="content-nav-cell">
+                                <a href="#" class="button button-bold">
+                                    YES
+                                </a>
+                            </div>
+                            <!-- /.content-nav-cell -->
                         </div>
-                        <!-- /.insert-card -->
+                        <!-- /.content-nav -->
                     </div>
                     <!-- /.content-center -->
                 </div>

@@ -11,23 +11,15 @@
 </head>
 <body class="no-js">
     <main class="main-global screen-intro">
-		<form action="/p2-insert-card">
-		<button>True</button>
-		</form>
-		<form action="/p10-right-door-1-open-warning">
-		<button>False</button>
-		</form>
         <div class="main-grid grid-content-only">
             <section class="content">
                 <div class="content-flex">
                     <div class="content-center">
-                        <div class="close-door">
-                            <div class="close-door-title">Please close top right door</div>
-                            <div class="close-door-icon">
-                                <img src="{{ url_for('static',filename='upload/close-door.svg')}}" alt="">
-                            </div>
+                        <div class="pin-code-error">
+                            <div class="pin-code-error-title">Pin code incorrect</div>
+                            <div class="pin-code-error-subtitle">Please try again</div>
                         </div>
-                        <!-- /.insert-card -->
+                        <!-- /.no-space -->
                     </div>
                     <!-- /.content-center -->
                 </div>
