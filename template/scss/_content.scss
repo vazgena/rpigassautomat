@@ -370,6 +370,8 @@
     bottom: 0;
     max-width: 28.5vw;
 }
+.cylinder-not-recognized,
+.payment-denied,
 .cylinder-detection,
 .door-blocked,
 .no-space {
@@ -405,6 +407,18 @@
         padding-top: 0.5vw;
     }
 }
+.payment-denied {
+    padding-bottom: 2.2vw;
+    &-title {
+        padding-bottom: 4.5vw;
+    }
+    &-phone {
+        padding-top: 0.5vw;
+    }
+    &-note {
+        padding-top: 5.5vw;
+    }
+}
 .cylinder-detection {
     padding-bottom: 5.4vw;
     &-icon {
@@ -417,6 +431,93 @@
         padding-top: 5.75vw;
     }
 }
+.wait-door {
+    text-align: center;
+    padding: 5vw 0 1vw;
+    &-title {
+        padding: 0 5% 4.75vw;
+        font-size: 6.25vw;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    &-icon {
+        padding-top: 0;
+        max-width: 18.75vw;
+    }
+    &-note {
+        padding: 5.625vw 8% 0;
+        font-size: 4vw;
+        line-height: 1.6;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    &-subtitle {
+        margin-top: -6.25vw;
+        padding: 0 8% 8.75vw;
+        font-size: 4vw;
+        line-height: 1.6;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+.cylinder-not-recognized {
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    &-title {
+        padding-bottom: 0.625vw;
+    }
+    &-icon {
+        max-width: 18.75vw;
+    }
+    &-subtitle {
+        padding-bottom: 3.75vw;
+    }
+    &-phone {
+        padding-top: 4.75vw;
+        padding-bottom: 0;
+    }
+    &-note {
+        padding-top: 0;
+        padding-bottom: 0.9vw;
+    }
+}
+.rotation {
+    animation: waitAnimation 2s $f infinite;
+    img {
+        display: block;
+    }
+}
+@keyframes waitAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+.write-pin,
+.pin-code-error {
+    text-align: center;
+    padding: 2vw 2vw 5.75vw;
+    font-weight: bold;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-size: 5vw;
+    &-title {
+        font-size: 6.25vw;
+    }
+    &-subtitle {
+        padding-top: 1.875vw;
+    }
+    &-icon {
+        padding-top: 8.75vw;
+        max-width: 22.5vw;
+    }
+}
+
 
 
 
