@@ -1,326 +1,294 @@
-
-**Pages description**
-
- - *Contains written description of the pages from pngPages folder. This description tries to explain the contents of the page as well as background actions that might take place when the pages are displayed.*
- - *The order is in no way related to the order the pages are actually shown in real case scenarios. For real case scenarios see the **Project Flow** part of this document*.
- - *The number inside the parenthesis represents an unique index of the page from the actual system (Automation Studio). This index will help us adapt the existing code to Python.* 
- **Terms description**
- 
- - User: person that has access to **maintenance** and/or **loading cycle** HMI pages of the machine.
- - Customer: person that **ONLY** has access to buying and exchanging HMI pages of the machine 
-
- **Error Pages:**
- - *axisError_(40).png*
-	Shown when one of the axis is not operable due to physical or software errors.
-
- - *gasLeak_(39)*
-Shown when the gas sensor detects a leak. There is an input voltage coming from the gas sensor. This page overwrites any other page displayed at a current moment. 
- 
- - *SvGasError1_(96)*
-	Contract code not found - shown in the buying process of a welding gas bottle. 
-
- - *SvGasError2_(97)*
-	Retry to send contract code - shown in the buying process of a welding gas bottle.
-	
-	SvGasError3_(99)
-	Shown when there is a problem connecting to the internet during a welding gas exchange
-	
- - *SvGasFormErrNo_(102)*
-	Shown when there is a problem with the phone number written in the buy/exchange welding gas form. 
-	
- - *SvGassSmsNotReceived_(93)*
-	Shown when the server couldn't send the code by SMS to the phone number specified. 
-	
-**Maintenance:** 
-
- - *pgServ_(33)*
-	Shown when from various cases the machine cannot be used. Usually when some repairs need to be physically done. 
-
- - *Init_Page_(0)*
-	Shown to users which have access to debugging menus.  
-
- - Maintenance_(1)
-	Shown to users which have access to debugging menus.  
-
- - *INVENTORY_(2)*
-	Allows the user to do actions regarding inventory. Loading cycle, set of empty bottles etc. 
-	
- - AxisSelect_(48)
-	Allows user to select right/left axis in order to open the control 				page for the axis on that side.
-	
- - *LAxiscmd_(49)*
-	After an axis is selected in AxisSelect_(48) this page allows the user to do various controls of that side axis. 
-	
- - *RAxisCmd_(50)*
-	After an axis is selected in AxisSelect_(48) this page allows the user to do various controls of that side axis. 
-
- - *resetAxes_(41)*
-	Used to reset the axes when they were on an error state.
-
- - *cardMaint_(30)*
-	 Allows user to reverse the last transaction made with card and issue a Z-Report. These 2 actions are done by communicating with the physical payment terminal in use.
-
- - *chkDCl_(62)*
-	 Asks the user if he shall perform a sensor test. This can be done in the **Loading Cycle** in order to detect broken sensors and change them if necessary. Here we will write a routine that when triggered will run a test on all 6 door locks.  
-
- - *LDChkCl_(63)*
-	Displays the errors (if any) found during the sensor test.
-
- - *sensTestRes_(64)*
-	 In case errors were found during sensor the sensor test, the logic asks the user if he shall continue to loading cycle or fix the errors. 
-	 
- - *SnsTstCorr_(66)*
-	In case errors were found during sensor the sensor test, the logic asks the user if he shall set empty bottles on the row the problems were found. 
-	
- - *sensTestRes2_(65)*
-	Shown after a sensor test when no error were found. 
-	
- - *doors_(11)*
-	 Allows the user to open all doors individually by pressing a button. 
-
- - *gasSensors_(13)*
-	Allows the user to see the current status of the gas sensor. 
-
- - *setSellingMode_(44)*
-	This page is used to enable/disable the selling of 5kg cylinders and standard/industrial valve types. 
-	
- - *Pricelist_(115)*
-	Used to show the actual prices for Norwegian customers
-	
- - *Pricelist_(123)*
-	Used to show the actual prices for Swedish customers
-	
- *- Update_After_Load_(36)*/UPDATE_ROW1_(10)/UPDATE_ROW2_(31) / UPDATE_ROW3_(35)
-	Allows the user to set a full row with empty bottles from 1 single press of a button. 
-	
-**Loading Cycle:** 
-
- - *Col_1_(3)*
-	 Shown to the user responsible for loading the machine with propane bottles. On this page he will see what bottles are required by the system to be loaded or he can manually override the system imposed bottle types. The COL 1 PAGE title represents the actual column that is being loaded. The columns start from 1 and end at 8.
-
- - *COL_1Sv_(103)*
-	 Shown to the user responsible for loading the machine with welding gas bottles. On this page he will see what bottles are required by the system to be loaded or he can manually override the system imposed bottle types. The COL 1 PAGE title represents the actual column that is being loaded. The columns start from 1 and end at 8.
-
- - *dOpenFailure_(67)*
-	Shown during the loading cycle when one or more doors are not opening. This can be due to a mechanical fail or due to the fact that the door is physically locked.  
-
- - *DriverCtrlPage_(84)*
-	Hidden page that allows the user to enter into the maintenance menu or the loading cycle menu. This page is shown when a hidden button is triggered on the paySelection page. 
-	
- *- noEmptyPlace_(54)*
-	Shown to the driver if he forgot to leave at least one empty space during the loading cycle. 
-
- - *SvGassLoadTankType_(90)*
-	Shown to the driver to allow him to load a specific welding gas bottle. 	
-
- - *Tank_Cond_(81)*
-	During the loading cycle a driver has the possibility to inform the owner in regards of the condition of the bottles. 
-	
-**Transaction Flow Pages:** 
-
- - *paySelection_(78)*/ SvGassPaySelection_(91)
-	Shown to Norwegian customers to chose the payment method they prefer to trade with when buying/exchanging propane or welding gas
-
- - *paySelectionSw_(117)*/ SvGassPaySelectionSW_(121)
-	Shown to Swedish customers to chose the payment method they prefer to trade with when buying/exchanging propane or welding gas
-
- - *InsertCard_(28)*
-	Asks the customer to insert his card and triggers the next action based on when the card is detected as inserted. 
-	
- - *Break_1_(21)*
-	 Shown during a transaction when customer has declined to exchange his tank. For example he changed his mind or he didn't like the price.
-	 
- - *buy_Break_(25)*
-	 Shown during a transaction when customer has declined to buy a new tank. For example he changed his mind regarding the type of cylinder or he didn't like the price.
-
- - *cardBanned_(68)*
-	Shown when we intentionally want to block a customer from buying/exchanging. We do this when we realize that a card number or Vipps phone number have exchanged old bottles too many times.  
-
- - *Chosen_1_(20)*
-	 Shown to present a final overview of customer's chosen propane product and it's price before starting the payment process. 
- - *Chosen_1SvGas_(112)*
-	Shown to present a final overview of customer's chosen welding gas product and it's price before starting the payment process.
-
- - *CompTypeSelect_(53)*
-	 Shown to the Norwegian customer to chose his preferred valve type (Some markets have different valve types, others only have one type.)
-	 
- - *CompTypeSelectSw_(82)*
-	 Shown to the Swedish customer to chose his preferred valve type (Some markets have different valve types, others only have one type.)
-
- - *deliverTank_(23)*
-	 Shown at the end of the purchase/exchange process to inform the customer that he has to wait for a door to open, take the tank and close the door. 
-
- - dmgTWarn_(70)
-	 Shown during the exchange process to inform the customer about the sales condition and personal data acquisition. He can accept or deny these conditions. He can also see what types of bottle(s) are being accepted by the vending machine before accepting/denying the conditions.
-Different markets and customers from inside these markets  (Norway/Sweden/Germany/Denmark etc.) are selling different bottle types. 
-
- - *doorLeftOMsg_(71)*
-	 Shown after the buy new/exchange process when previous customer have not closed the door and the next customer comes and places the bottle in that open space without actually starting the exchange process. 
-	 A buy new or exchange always ends when the door is closed without anything inside. Not doing so triggers the error message above. 
-
- - *doorOpenFaultGTB_(46)*
-	 Shown when the door is supposed to open to give the bottle but due to mechanical failure or because the customer is not allowing the door to open by holding it with the hands. In this case the machine tries to open the door 3 times and after that it gives up by keeping the door closed and showing this message. 
-
- - *doorOpenFaultPutIn_(45)*
-	 Shown when the door is supposed to open to receive a bottle but due to mechanical failure or because the customer is not following the instructions which asks him to place a bottle the machine tries to open the door until either a bottle is placed either is's being blocked and if it's blocked without no bottle it shows this message. (In our current case we need to modify this a little bit due to the fact that recognition is not made instantly).
-
- - *Exchange_3_0_(16)*
-	Allows customer to chose between exchanging between same type of bottles (YES) or to another type of bottle (NO) or to chose welding gas bottle type. 
-
- - *Exchange_4_1no_(19)*
-Allows customer of Norwegian market to chose what type of bottle they want to exchange to. (In the situation in which they have pressed NO on the Exchange_3_0_(16) page).
-*Valve type **cannot** be chosen in the next step.
-
- - *Exchange_4_1sw_(124)*
-Allows customer of Swedish market to chose what type of bottle they want to exchange to. (In the situation in which they have pressed NO on the Exchange_3_0_(16) page).
-*Valve type **cannot** be chosen in the next step.
-
- - *Exchange_4_2no_(42)*
-	Same as Exchange_4_1no_(19) but with the sale of 5kg cylinders disabled. 
-	
- - *Exchange_4_2sw_(125)*
-Same as Exchange_4_1sw_(124) but with the sale of 5kg cylinders disabled. 
-
- - *Exchange_4_3no_(52)*
-	Allows customer of Norwegian market to chose what type of bottle they want to exchange to. (In the situation in which they have pressed NO on the Exchange_3_0_(16) page).
-*Valve type **can** be chosen in the next step.
-
- - *Exchange_4_3sw_(126)*
-	Allows customer of Swedish market to chose what type of bottle they want to exchange to. (In the situation in which they have pressed NO on the Exchange_3_0_(16) page).
-*Valve type **can** be chosen in the next step.
-
- - *Exchange_4_4no_(60)*
-Same as Exchange_4_2no_(42).
-
- - *Exchange_4_4sw_(127)*
-Same as Exchange_4_2sw_(125).
-
- - *Exchange4_(18)*
-During exchanging process asks the customer to wait until door opens, place his empty propan bottle and close the door. 
-
- - *Exchange4SvGas_(111)*
-During exchanging process asks the customer to wait until door opens, place his empty welding gas bottle and close the door. 
-
- - *giveTankBack_(47)*
-Shown whenever the transaction did not went trough. Either if the customer aborted it, either if the payment did not went trough. 
-
- - *KvtEmail1_(129)*
-	Asks customer if he wants to receive a receipt on e-mail or not
-
- - *KvtEmail2_(130)*
-	Asks customer to write in his e-mail to receive the receipt. 
-
- - *KvtEmail3_(131)*
-	Confirms the sending of receipt on e-mail. 
-
- - *L/RDoor1/2/3Open_(L:55,56,72 R:57,58,59)*
-Asks the customer to close the specific door if found open at the beginning of a purchase or exchange cycle. When a purchase/exchange starts, all door have to be closed or else this message is displayed. 
-
- - *NoEmptyPosInMag_(27)*
-	Shown to customer when he tries to exchange and there is no empty place in the machine for him to leave his empty cylinder. 
-
- - *NoSvTankPutIn(128)*
-	Shown to customer when he tries to exchange a welding gas bottle and the system detects that he have not actually placed a welding gas bottle. 
-
- - *notAllDoorsClosed_(37)*
-	Not in use. It was replaced with the L/RDoor1/2/3Open_(55,56,72)
-
- - *noTankAvail_(24)*
-	 Shown to customer when his desired tank is not available in the vending machine when he tries to buy/exchange. 
-
- - *PaymentInstructions_(22)*
-	Shown during the card payment. It mirrors the messages from the payment terminal screen. 
-
- - *PTCommError_(69)*
-	Shown whenever the payment terminal returned an error regarding an unsuccessful card payment.
-
- - *Purchase_4_(43)*
-	Shown when the sale of 5kg cylinders and industrial valve are disabled. 
-
- - *Purchase_6_(61)*
-	Shown when the sale of 5kg cylinders is disabled but the sale of industrial valve is enabled. 
-
- - *purchase1_(14)*
-	Shown after the card payment is selected in paySelection(x) page. 
-
- - SV_Sel_Pay_(113)
-	Shown after the card payment is selected in buying or exchanging a welding gas bottle.
-
- - *SvGasBuy1_(85)*
-	Bottle types - shown in the buying process of a welding gas bottle. 
-	
- - *SvGasBuy2_(86)*
-	Sale conditions - shown in the buying process of a welding gas bottle.
-
- - *SvGasBuy3_(88)*
-	Personal information - shown in the buying process of a welding gas bottle for Norwegian customers.
-
- - *SvGasBuy4_(92)*
-	Phone number confirmation - hown in the buying process of a welding gas bottle.
-
- - *SvGasBuySw_(118)*
-	Personal information - shown in the buying process of a welding gas bottle for Swedish customers.
-	
- - *purchase2_(15)*
-	Allows the customer to chose between purchase of a new tank or the exchange of his old one. 
-	
- - *PurchaseAllNo_(51)*
-	Shows the buying products for Norwegian market. 
-	
- - *PurchaseAllSw_(17)*
-	Shows the buying products for Swedish market. 
-
- - *SteelTypeSelect_(32)*
-	Allows the Norwegian customer to chose between the desired valve types during a buying or exchanging cycle. 
-
- - *SteelTypeSelectSw_(83)*
-	Allows the Swedish customer to chose between the desired valve types during a buying or exchanging cycle. 
-	
-
- - *SvGasExch1_(94)*
-	Allows an existing customer to exchange his welding gas bottle by using an unique code provided to him when he first bought 
-
- - *SvGasExch3,4,5_(89,100,101)*
-	Based on his code, the flow presents what type of bottle shall be delivered. 
-	
-
- - *SvGassTradeType_(87)*
-	Allows the customers to chose what type of welding gas trade they shall do.
-
- - *SvGasWait1_(95)*
-	Wait page for the system to check if the contract code is valid. 
-	
- - *SvGasWait2_(98)*
-	Wait page for the system to inform the customer that the SMS is being sent. 
-
- - *TakeBackTank_(26)*
-	System is informing the customer that he has to take back his own bottle and close the door. 
-	
-**Mobile Payment Flow** 
-**Vipps:**
- - *mCashPayReqStatus_(80)*
- Shown when mobile payment is initiated from the vending machine by sending a JSON message to server. 
-
- - *QR_Test_(73)*
-	Informs the customer that he has to accept the payment on his phone and press the button after he have done it.
-
- - *mCashPaystatus_(75)*
-	Shown after customer have pressed the above button on the screen to confirm that he has paid with his app. During this screen the logic is checking to see if the customer have really paid. 
-
- - *RetryReserve_(116)*
-	Shown to the customer 
-
- - *mCashPayTimeout_(76)*
-	Shown when the logic have detected no payment. 
-	
- - *ServCommErr_(74)*
-	Shown when there is a problem communicating with the vipps server.
-	
- - *vippsPayError_(77)*
-	Shown when there is a problem regarding the payment. 
-	
- - *VippsPaystatus(75)*
-	Shown during the payment status check
-	
- - *VippsPhoneNr_(114)*
-	Allows customer to write his own phone number in order to pay with Vipps. 
+## Operational Flow Description
+
+*See the flow charts in the .png files*
+
+*Vending machine structure and physical configuration:*  
+
+> Carousel = the moving frame that has 8 horizontal columns and 3 vertical rows.
+ 8x3 = 24 cylinders for one side, 48 for 2 sides.   
+> Left carousel = the moving frame from left side  
+> Right carousel = the moving frame from right side  
+> Doors = 3 doors for left and 3 for the right  
+> Pick-up/drop-in positions = the position behind the doors in which the
+cylinders can be loaded/unloaded to/from the vending machine.  
+
+
+|LEFT SIDE   |COL 1|COL 2|COL 3|COL 4|COL 5|COL 6|COL 7|COL 8|
+|-----------:|-----|-----|-----|-----|-----|-----|-----|-----|
+| ROW 1      |     |     |     |     |     |     |     |     |
+| ROW 2      |     |     |     |     |     |     |     |     |
+| ROW 3      |     |     |     |     |     |     |     |     |     
+
+
+|RIGHT SIDE   |COL 1|COL 2|COL 3|COL 4|COL 5|COL 6|COL 7|COL 8|
+|-----------:|-----|-----|-----|-----|-----|-----|-----|-----|
+| ROW 1      |     |     |     |     |     |     |     |     |
+| ROW 2      |     |     |     |     |     |     |     |     |
+| ROW 3      |     |     |     |     |     |     |     |     |     
+
+*Terms description:*
+
+> BTN =  button activated by the user on the screen  
+> M/F = Method or Function performed by the script after an action or when a
+.html page is loaded.  
+> DYN = Page with Dynamic Content.  
+> CONF = Configuration  
+> x.html = x is the name of the .html file.          
+
+*Products*
+Propane:
+
+|Name                     | Material   | Volume  | Valve      |  Country  |
+|-------------------------|------------|---------|------------|-----------|
+|11 Kg Stål Standard      |  Steel     |   11 Kg |  Click     |  Norway   |
+|11 Kg Stål Industri      |  Steel     |   11 Kg |Industrial  |  Norway   |
+|5 Kg Stål                |  Steel     |   5 Kg  |  Click     |  Norway   |
+|10 Kg Kompositt Standard |  Composite |   10 Kg | Click      |  Norway   |
+10 Kg Kompositt Industri  |  Composite |   10 Kg | Industrial |  Norway   |
+|5 Kg Kompositt           |  Composite |   5 Kg  |   Click    |  Norway   |
+|P 11                     |  Steel     |   11 Kg | Industrial |  Sweden   |
+|P 11 Click               |  Steel     |   11 Kg |  Click     |  Sweden   |
+|P 6                      |  Steel     |   6 Kg  | Industrial |  Sweden   |
+|PC 10                    |  Composite |   10 Kg | Industrial |  Sweden   |
+|PC 10 Click              |  Composite |   10 Kg | Click      |  Sweden   |
+|PC 5                     |  Composite |   5 Kg  | Industrial |  Sweden   |
+
+Welding gas:
+
+| Name       | Volume  | Country  |
+|:-:         |---      |---       |
+| Argon      | 11 L    | Norway   |
+| Argon Mix  | 11 L    | Norway   |
+| Co2        | 11 L    | Norway   |
+
+### [- Buy new propane cylinder. Pay with card](https://github.com/sicabboy1/rpigassautomat/tree/master/operationalFlow/end%20customer/card/Propan/buy)
+
+
+0.  Initial screen presents the payment methods available
+1.  Payment with card method is chosen
+2.  Type of transaction is chosen (Buy)
+3.  Type of cylinder to be bought is chosen
+4.  Program search if the wanted cylinder exists in the inventory.  
+5.  Type of valve available for the cylinder above is chosen.  
+    This step is skipped if the cylinder has only 1 type of valve available.  
+6.  Program search if the wanted cylinder with chosen valve exists in the inventory   
+7.  A page with an overview of the chosen cylinder and price for buy is presented to the customer.  
+    If he declines the process is stopped and the card is not charged.  
+    If he accepts the process continues and the customer is asked to present the card. Insert it in the card reader or use the contactless chip.
+8.  The payment is processed by the payment provider.  
+    If it's accepted, the cylinder chosen at step 3 that has the valve chosen at step 5 is delivered as described at step 9.
+    If it's not accepted, an error message is shown on the screen and the buying process is aborted.
+9.  To deliver the cylinder the program identifies the ROW and the COLUMN for LEFT or RIGHT carousel in which the desired cylinder (3) which has desired valve (5) is.
+10. Program rotate the carousel to bring the cylinder in the pick-up position.
+11. Step (10) can be skipped if the cylinder is already present in the pick-up position.
+12. After the cylinder position (column+row) is in pick-up position, one of the 6 doors will open, customer will pick his cylinder and close the door.      
+13. After the door is closed, a question for receiving receipt comes on the screen. If customer wants receipt he press "Yes", if not, he press "No". For no, the process is reset and for yes it goes to next step.
+14. For receiving a receipt customer must write his e-mail address on the screen and press "Send".
+15. The required information is sent to server which sends the receipt to customer.
+16. Customer is informed that we have sent the receipt and process is reset.    
+
+
+### [- Change empty propane cylinder with full one of same type. Pay with card:](https://github.com/sicabboy1/rpigassautomat/tree/master/operationalFlow/end%20customer/card/Propan/exchange)
+
+0.  Screen presents the payment methods available.
+1.  Payment with card method is chosen.
+2.  Type of transaction is chosen (change).
+3.  Exchange to same type of cylinder is chosen.
+4.  Program search if an empty spot exists in the inventory. Process continues if it exists or else an error message is displayed.
+5.  To receive the empty cylinder the program identifies the ROW and the COLUMN for LEFT or RIGHT carousel in which the empty spot is. If no empty spot is found, an error message is shown.  
+    Note: Usually this empty spot is always behind the door that was used to deliver the full cylinder in the previous trade. An empty spot is also left available during the loading cycle.
+6.  Sale and GDPR conditions are shown on the screen and the customer has to accept them in order to continue. If he doesn't, his bottle is returned and process is reset.
+7.  If an empty spot is found and if it's not behind one of the doors, the carousel is rotated until the empty spot is brought behind a door.
+8.  The door opens and user is instructed to place in his empty cylinder and close the door.
+9.  After the door is registered as closed, the carousel is moved to the identification position and the customer is instructed to wait.
+10. The bottle is scanned and identified.
+11. A page with an overview of the identified cylinder and price for change to same type is presented to the customer.  
+    If he declines the process is stopped.
+    If he accepts the process continues and the customer is asked to present the card. Insert it in the card reader or use the contactless chip.
+12. The payment is processed by the payment provider.  
+    If it's accepted, the cylinder detected (10) is delivered as described at step 16.
+    If it's not accepted, an error message is shown on the screen and the buying process is aborted.
+13. To deliver the cylinder the program identifies the ROW and the COLUMN for LEFT or RIGHT carousel in which the desired cylinder (3) is.
+14. Program rotate the carousel to bring the cylinder in the pick-up position.
+15. Step (10) can be skipped if the cylinder is already present in the pick-up position.
+16. After the cylinder position (column+row) is in pick-up position, one of the 6 doors will open, customer will pick his cylinder and close the door.
+17. After the door is closed, a question for receiving receipt comes on the screen. If customer wants receipt he press "Yes", if not, he press "No". For no, the process is reset and for yes it goes to next step.
+18. For receiving a receipt customer must write his e-mail address on the screen and press "Send".
+19. The required information is sent to server which sends the receipt to customer.
+20. Customer is informed that we have sent the receipt and process is reset.   
+
+
+### [- Change empty propane cylinder with full one of different type. Pay with card:](https://github.com/sicabboy1/rpigassautomat/tree/master/operationalFlow/end%20customer/card/Propan/exchange)
+
+0.  Screen presents the payment methods available.
+1.  Payment with card method is chosen.
+2.  Type of transaction is chosen (change).
+3.  Exchange to different type of cylinder is chosen.
+4.  The list with cylinders is shown and the customer chose the one that he wants.
+5.  Program search if the wanted cylinder exists in the inventory. Process continues if it exists or else an error message is displayed.
+6.  Type of valve available for the cylinder above is chosen.  
+    This step is skipped if the cylinder has only 1 type of valve available.
+7.  Program search if the wanted cylinder with chosen valve exists in the inventory
+8.  To receive the empty cylinder the program identifies the ROW and the COLUMN for LEFT or RIGHT carousel in which the empty spot is. If no empty spot is found, an error message is shown.  
+    Note: Usually this empty spot is always behind the door that was used to deliver the full cylinder in the previous trade. An empty spot is also left available during the loading cycle.
+9.  If an empty spot is found and if it's not behind one of the doors, the carousel is rotated until the empty spot is brought behind a door.
+10. Sale and GDPR conditions are shown on the screen and the customer has to accept them in order to continue. If he doesn't, his bottle is returned and process is reset.  
+11. The door opens and user is instructed to place in his empty cylinder and close the door.
+12. After the door is registered as closed, the carousel is moved to the identification position and the customer is instructed to wait.
+13. The bottle is scanned and identified.
+14. A page with an overview of the identified cylinder and price for change to same type is presented to the customer.  
+    If he declines the process is stopped.
+    If he accepts the process continues and the customer is asked to present the card. Insert it in the card reader or use the contactless chip.
+15. The payment is processed by the payment provider.  
+    If it's accepted, the cylinder chosen at step 3 that has the valve chosen at step 6 is delivered as described at step 19.
+    If it's not accepted, an error message is shown on the screen and the buying process is aborted.
+16. To deliver the cylinder the program identifies the ROW and the COLUMN for LEFT or RIGHT carousel in which the desired cylinder (4) which has desired valve (9) is.
+17. Program rotate the carousel to bring the cylinder in the pick-up position.
+18. Step (10) can be skipped if the cylinder is already present in the pick-up position.
+19. After the cylinder position (column+row) is in pick-up position, one of the 6 doors will open, customer will pick his cylinder and close the door.
+20. After the door is closed, a question for receiving receipt comes on the screen. If customer wants receipt he press "Yes", if not, he press "No". For no, the process is reset and for yes it goes to next step.
+21. For receiving a receipt customer must write his e-mail address on the screen and press "Send".
+22. The required information is sent to server which sends the receipt to customer.
+23. Customer is informed that we have sent the receipt and process is reset.   
+
+
+### [- Buy new welding gas cylinder. Pay with card:](https://github.com/sicabboy1/rpigassautomat/tree/master/operationalFlow/end%20customer/card/Sveisegass/Buy)
+
+0.  Screen presents the payment methods available.
+1.  Payment with card method is chosen.
+2.  Type of transaction is chosen (buy).
+3.  If the vending machine is configured to sell welding gas, at this step the customer is prompted to chose the type of gas. Welding gas is chosen.
+4. Welding gas sale and GDPR conditions are shown on the screen and the customer has to accept them in order to continue. If he doesn't, his bottle is returned and process is reset.
+5. The customer has to write his personal details on the screen including the phone number.
+6. The program sends an SMS with an unique code to the phone number written in the step above.
+7. The customer writes the code received on the screen and the program checks it.
+8. If the code is valid, customer will see a summary with type of cylinder and price.
+9. A page with an overview of the chosen cylinder and price for buy is presented to the customer.  
+    If he declines the process is stopped and the card is not charged.  
+    If he accepts the process continues and the customer is asked to present the card. Insert it in the card reader or use the contactless chip.
+10.  The payment is processed by the payment provider.  
+    If it's accepted, the cylinder chosen at step 3 that has the valve chosen at step 5 is delivered as described at step 9.
+    If it's not accepted, an error message is shown on the screen and the buying process is aborted.
+11.  To deliver the cylinder the program identifies the ROW and the COLUMN for LEFT or RIGHT carousel in which the desired cylinder is.
+12. Program rotate the carousel to bring the cylinder in the pick-up position.
+13. Step (10) can be skipped if the cylinder is already present in the pick-up position.
+14. After the cylinder position (column+row) is in pick-up position, one of the 6 doors will open, customer will pick his cylinder and close the door.
+15. A receipt is automatically sent to the customer by e-mail.
+
+
+### [- Exchange welding gas cylinder. Pay with card:](https://github.com/sicabboy1/rpigassautomat/tree/master/operationalFlow/end%20customer/card/Sveisegass/Exchange)
+
+0.  Screen presents the payment methods available.
+1.  Payment with card method is chosen.
+2.  Type of transaction is chosen (change).
+3.  If the vending machine is configured to sell welding gas, at this step the customer is prompted to chose the type of gas. Welding gas is chosen.
+4. Customer is prompted to write his contract code. If the code is valid, the process continues. Else it's aborted.
+5. Based on the contract code the program informs the user of the bottle type he is about to change. If he agrees, the process continues. If he denies, the process is aborted.
+Program search if the wanted cylinder with chosen valve exists in the inventory
+6.  To receive the empty cylinder the program identifies the ROW and the COLUMN for LEFT or RIGHT carousel in which the empty spot is. If no empty spot is found, an error message is shown.  
+    Note: Usually this empty spot is always behind the door that was used to deliver the full cylinder in the previous trade. An empty spot is also left available during the loading cycle.
+7.  If an empty spot is found and if it's not behind one of the doors, the carousel is rotated until the empty spot is brought behind a door.
+8. Sale and GDPR conditions are shown on the screen and the customer has to accept them in order to continue. If he doesn't, his bottle is returned and process is reset.  
+9. The door opens and user is instructed to place in his empty cylinder and close the door.
+10. After the door is registered as closed, the carousel is moved to the identification position and the customer is instructed to wait.
+11. The bottle is scanned and identified.
+12. A page with an overview of the identified cylinder and price for change to same type is presented to the customer.  
+    If he declines the process is stopped and the card is not charged.  
+    If he accepts the process continues and the customer is asked to present the card. Insert it in the card reader or use the contactless chip.
+13. The payment is processed by the payment provider.  
+    If it's accepted, the cylinder chosen at step 5 is delivered as described at step 14.
+    If it's not accepted, an error message is shown on the screen and the buying process is aborted.
+14. To deliver the cylinder the program identifies the ROW and the COLUMN for LEFT or RIGHT carousel in which the desired cylinder (5) is.
+15. Program rotate the carousel to bring the cylinder in the pick-up position.
+16. Step (10) can be skipped if the cylinder is already present in the pick-up position.
+17. After the cylinder position (column+row) is in pick-up position, one of the 6 doors will open, customer will pick his cylinder and close the door.          
+18. Receipt is automatically sent to the customer.
+
+
+### [- Buy new propane cylinder. Pay with Vipps](https://github.com/sicabboy1/rpigassautomat/tree/master/operationalFlow/end%20customer/Vipps/Propan/Buy)
+
+
+0.  Initial screen presents the payment methods available
+1.  Payment with Vipps method is chosen
+2.  Type of transaction is chosen (Buy)
+3.  Type of cylinder to be bought is chosen
+4.  Program search if the wanted cylinder exists in the inventory.  
+5.  Type of valve available for the cylinder above is chosen.  
+    This step is skipped if the cylinder has only 1 type of valve available.  
+6.  Program search if the wanted cylinder with chosen valve exists in the inventory   
+7.  A page with an overview of the chosen cylinder and price for buy is presented to the customer.  
+    If he declines the process is stopped and the card is not charged.  
+    If he accepts the process continues and the customer is asked to write in his phone number.
+8. Program sends a payment request to his phone number and the customer needs to accept it in his personal Vipps app.
+9. The payment is processed and if it's accepted, the cylinder chosen at step 3 that has the valve chosen at step 5 is delivered as described at step 10.
+    If it's not accepted, an error message is shown on the screen and the buying process is aborted.
+10.  To deliver the cylinder the program identifies the ROW and the COLUMN for LEFT or RIGHT carousel in which the desired cylinder (3) which has desired valve (5) is.
+11. Program rotate the carousel to bring the cylinder in the pick-up position.
+12. Step (10) can be skipped if the cylinder is already present in the pick-up position.
+13. After the cylinder position (column+row) is in pick-up position, one of the 6 doors will open, customer will pick his cylinder and close the door.      
+14. After the door is closed, a question for receiving receipt comes on the screen. If customer wants receipt he press "Yes", if not, he press "No". For no, the process is reset and for yes it goes to next step.
+15. For receiving a receipt customer must write his e-mail address on the screen and press "Send".
+16. The required information is sent to server which sends the receipt to customer.
+17. Customer is informed that we have sent the receipt and process is reset.
+
+### [- Change empty propane cylinder with full one of same type. Pay with Vipps:](https://github.com/sicabboy1/rpigassautomat/tree/master/operationalFlow/end%20customer/Vipps/Propan/Exchange)
+
+0.  Screen presents the payment methods available.
+1.  Payment with Vipps method is chosen.
+2.  Type of transaction is chosen (change).
+3.  Exchange to same type of cylinder is chosen.
+4.  Program search if an empty spot exists in the inventory. Process continues if it exists or else an error message is displayed.
+5.  To receive the empty cylinder the program identifies the ROW and the COLUMN for LEFT or RIGHT carousel in which the empty spot is. If no empty spot is found, an error message is shown.  
+    Note: Usually this empty spot is always behind the door that was used to deliver the full cylinder in the previous trade. An empty spot is also left available during the loading cycle.
+6.  Sale and GDPR conditions are shown on the screen and the customer has to accept them in order to continue. If he doesn't, his bottle is returned and process is reset.
+7.  If an empty spot is found and if it's not behind one of the doors, the carousel is rotated until the empty spot is brought behind a door.
+8.  The door opens and user is instructed to place in his empty cylinder and close the door.
+9.  After the door is registered as closed, the carousel is moved to the identification position and the customer is instructed to wait.
+10. The bottle is scanned and identified.
+11. A page with an overview of the identified cylinder and price for change to same type is presented to the customer.  
+    If he declines the process is stopped.
+    If he accepts the process continues and the customer is asked to write his phone number on the screen and press "Send"
+12. The payment is requested on customer's phone trough Vipps app, accepted and processed by Vipps.  
+    If it's accepted, the cylinder detected (10) is delivered as described (16).
+    If it's not accepted, an error message is shown on the screen and the buying process is aborted.
+13. To deliver the cylinder the program identifies the ROW and the COLUMN for LEFT or RIGHT carousel in which the desired cylinder (3) is.
+14. Program rotate the carousel to bring the cylinder in the pick-up position.
+15. Step (10) can be skipped if the cylinder is already present in the pick-up position.
+16. After the cylinder position (column+row) is in pick-up position, one of the 6 doors will open, customer will pick his cylinder and close the door.
+17. After the door is closed, a question for receiving receipt comes on the screen. If customer wants receipt he press "Yes", if not, he press "No". For no, the process is reset and for yes it goes to next step.
+18. For receiving a receipt customer must write his e-mail address on the screen and press "Send".
+19. The required information is sent to server which sends the receipt to customer.
+20. Customer is informed that we have sent the receipt and process is reset.
+
+### [- Change empty propane cylinder with full one of different type. Pay with Vipps:](https://github.com/sicabboy1/rpigassautomat/tree/master/operationalFlow/end%20customer/Vipps/Propan/Exchange)
+
+0.  Screen presents the payment methods available.
+1.  Payment with Vipps method is chosen.
+2.  Type of transaction is chosen (change).
+3.  Exchange to different type of cylinder is chosen.
+4.  The list with cylinders is shown and the customer chose the one that he wants.
+5.  Program search if the wanted cylinder exists in the inventory. Process continues if it exists or else an error message is displayed.
+6.  Type of valve available for the cylinder above is chosen.  
+    This step is skipped if the cylinder has only 1 type of valve available.
+7.  Program search if the wanted cylinder with chosen valve exists in the inventory
+8.  To receive the empty cylinder the program identifies the ROW and the COLUMN for LEFT or RIGHT carousel in which the empty spot is. If no empty spot is found, an error message is shown.  
+    Note: Usually this empty spot is always behind the door that was used to deliver the full cylinder in the previous trade. An empty spot is also left available during the loading cycle.
+9.  If an empty spot is found and if it's not behind one of the doors, the carousel is rotated until the empty spot is brought behind a door.
+10. Sale and GDPR conditions are shown on the screen and the customer has to accept them in order to continue. If he doesn't, his bottle is returned and process is reset.  
+11. The door opens and user is instructed to place in his empty cylinder and close the door.
+12. After the door is registered as closed, the carousel is moved to the identification position and the customer is instructed to wait.
+13. The bottle is scanned and identified.
+14. A page with an overview of the identified cylinder and price for change to same type is presented to the customer.  
+    If he declines the process is stopped.
+    If he accepts the process continues and the customer is asked to write his phone number on the screen and press "Send"
+15. The payment is requested on customer's phone trough Vipps app, accepted and processed by Vipps.  
+    If it's accepted, the cylinder detected (13) is delivered as described (19).
+    If it's not accepted, an error message is shown on the screen and the buying process is aborted.
+16. To deliver the cylinder the program identifies the ROW and the COLUMN for LEFT or RIGHT carousel in which the desired cylinder is.
+17. Program rotate the carousel to bring the cylinder in the pick-up position.
+18. Step (10) can be skipped if the cylinder is already present in the pick-up position.
+19. After the cylinder position (column+row) is in pick-up position, one of the 6 doors will open, customer will pick his cylinder and close the door.
+20. After the door is closed, a question for receiving receipt comes on the screen. If customer wants receipt he press "Yes", if not, he press "No". For no, the process is reset and for yes it goes to next step.
+21. For receiving a receipt customer must write his e-mail address on the screen and press "Send".
+22. The required information is sent to server which sends the receipt to customer.
+23. Customer is informed that we have sent the receipt and process is reset.   
