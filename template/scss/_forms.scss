@@ -17,6 +17,22 @@ input.input-text {
     border-radius: 0;
     transition: color $d $f, background-color $d $f, border-color $d $f;
     will-change: color, background-color, border-color;
+    color: $text;
+    text-align: center;
+    border: 0.375vw solid $text;
+    border-radius: 0.75vw;
+    font-size: 5vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: $t;
+    padding: 0 1.25vw;
+    height: 9.5vw;
+    width: 100%;
+    &-bold {
+        font-weight: bold;
+        font-size: 3.75vw;
+        border-width: 0.625vw;
+    }
 }
 textarea.textarea {
     @extend input.input-text;
@@ -425,5 +441,21 @@ button.button {
         &-link {
             height: 8.125vw;
         }
+    }
+}
+.form {
+    label.error {
+        position: absolute;
+        top: 0.25vw;
+        border-radius: 0.25vw;
+        left: 0;
+        right: 0;
+        padding: 1vw;
+        text-align: center;
+        color: $w !important;
+        text-transform: uppercase;
+        font-size: 2vw;
+        background: $red;
+        transform: translateY(-100%);
     }
 }

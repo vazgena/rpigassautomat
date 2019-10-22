@@ -195,7 +195,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    let currentLang = 'sw';
+    // 'sw' || 'en' || 'de' || 'no'
+    let currentLang = 'no';
+
+    //init keyboard
+    function initKeyboard() {
+        const keyboard = `
+            <div class="main-grid grid-no-header main-grid-absolute main-keyboard d-none">
+                <section class="content">
+                    <div class="content-flex">
+                        <div class="content-center">
+                            <div class="keyboard-block">
+                                <div class="keyboard-input"><input type="text" class="keyboard-input-text validate-text" readonly></div>
+                                <div class="keyboard"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <footer class="footer-global">
+                    <div class="container">
+                        <div class="footer-columns">
+                            <div class="footer-nav-left">
+                                <a href="#" class="button button-keyboard-back">Back</a>
+                            </div>
+                            <div class="footer-center">
+                            </div>
+                            <div class="footer-nav-right">
+                                <a href="#" class="button button-keyboard-ok">Ok</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        `;
+        $('.main-global').append(keyboard);
+    }
+    if ($('.virtual-keyboard').length) {
+        initKeyboard();
+    }
 
     //create keyboard
     function createKeyboard() {
@@ -258,6 +295,72 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    var validateEmail = $("#validateEmail").validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+        },
+        messages: {
+            email: 'Please enter a valid email address',
+        },
+        submitHandler: function(form) {
+            return false;
+        }
+    });
+
+    var validateTel = $("#validateTel").validate({
+        rules: {
+            tel: {
+                required: true,
+                minlength: 8,
+                maxlength: 8,
+                number: true
+            },
+        },
+        messages: {
+            tel: {
+                required: "Please enter a phone number",
+                minlength: "Phone number must consist 8 characters",
+                maxlength: "Phone number must consist 8 characters",
+                number: "Please enter a valid number"
+            }
+        },
+        submitHandler: function(form) {
+            return false;
+        }
+    });
+
+    $(document).on('click', '.virtual-keyboard', function(event) {
+        event.preventDefault();
+        $(this).parents('.main-grid').addClass('d-none');
+        $(this).addClass('keyboard-target');
+        $('.main-keyboard').removeClass('d-none');
+        $('.main-keyboard').find('.keyboard-input-text').val($(this).val());
+    });
+
+    $(document).on('click', '.button-keyboard-back', function(event) {
+        event.preventDefault();
+        $('.main-keyboard').find('.keyboard-input-text').val('');
+        $('.keyboard-target').parents('.main-grid').removeClass('d-none');
+        $('.main-keyboard').addClass('d-none');
+    });
+
+    $(document).on('click', '.button-keyboard-ok', function(event) {
+        event.preventDefault();
+        if (validateTel) {
+            validateTel.resetForm();
+        }
+        if (validateEmail) {
+            validateEmail.resetForm();
+        }
+        $('.keyboard-target').val($('.main-keyboard').find('.keyboard-input-text').val());
+        $('.keyboard-target').removeClass('error');
+        $('.keyboard-target').parents('.main-grid').removeClass('d-none');
+        $('.main-keyboard').addClass('d-none');
+        $('.keyboard-target').removeClass('keyboard-target');
+    });
 
     //ready
     document.querySelector('body').classList.remove('no-js');
