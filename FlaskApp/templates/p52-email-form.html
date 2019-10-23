@@ -11,29 +11,22 @@
 </head>
 <body class="no-js">
     <main class="main-global screen-intro">
-		<form action="/p3-transaction-type">
-		<button>True</button>
-		</form>
         <div class="main-grid grid-no-header">
             <section class="content">
                 <div class="content-flex">
                     <div class="content-center">
-                        <div class="content-nav">
-                            <div class="content-nav-header small-padding">Choose the gas type you need</div>
-                            <div class="content-nav-cell">
-                                <a href="#" class="button button-medium-bold">
-                                    Propane gas
-                                </a>
-                            </div>
-                            <!-- /.content-nav-cell -->
-                            <div class="content-nav-cell">
-                                <a href="#" class="button button-medium-bold">
-                                    Welding gas
-                                </a>
-                            </div>
-                            <!-- /.content-nav-cell -->
+                        <div class="form">
+                            <form id="validateEmail">
+                                <div class="form-title">Write your e-mail address</div>
+                                <div class="form-input">
+                                    <input class="input-text input-text-bold virtual-keyboard" type="email" name="email" id="email" required readonly>
+                                </div>
+                                <div class="form-navigation">
+                                    <button class="button button-bold">Send</button>
+                                </div>
+                            </form>
                         </div>
-                        <!-- /.content-nav -->
+                        <!-- /.form -->
                     </div>
                     <!-- /.content-center -->
                 </div>
@@ -44,7 +37,7 @@
                 <div class="container">
                     <div class="footer-columns">
                         <div class="footer-nav-left">
-                            <a href="/p2-insert-card" class="button">Back</a>
+                            <a href="#" class="button">Cancel</a>
                         </div>
                         <!-- /.footer-nav-left -->
                         <div class="footer-center">

@@ -375,7 +375,8 @@
 .payment-denied,
 .cylinder-detection,
 .door-blocked,
-.no-space {
+.no-space,
+.no-tank {
     text-align: center;
     padding: 2vw 2vw 5.75vw;
     font-weight: bold;
@@ -499,6 +500,21 @@
         padding-bottom: 0.9vw;
     }
 }
+.no-tank {
+    padding-top: 2vw;
+    padding-bottom: 8vw;
+    &-title {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 0vw;
+        line-height: 1.28;
+        font-size: 5.625vw;
+    }
+    &-note {
+        font-size: 3.125vw;
+        padding-top: 17.875vw;
+    }
+}
 .rotation {
     animation: waitAnimation 2s $f infinite;
     img {
@@ -545,6 +561,29 @@
     &-icon {
         padding-top: 0;
         max-width: 18.75vw;
+    }
+}
+.form {
+    text-align: center;
+    padding: 3vw;
+    &-title {
+        font-size: 5.625vw;
+        line-height: 1.2;
+        font-weight: bold;
+        padding-bottom: 5.25vw;
+        text-transform: uppercase;
+    }
+    &-input {
+        position: relative;
+        max-width: 82.25%;
+        margin: 0 auto;
+        padding-bottom: 6vw;
+    }
+    &-navigation {
+        padding-top: 1.5vw;
+        .button {
+            min-width: 25vw;
+        }
     }
 }
 

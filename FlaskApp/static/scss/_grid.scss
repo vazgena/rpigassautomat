@@ -23,4 +23,16 @@
     &.grid-no-header {
         grid-template-rows: auto 9.5vw;
     }
+    &.main-grid-absolute {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        overflow: auto;
+        z-index: 100;
+    }
+}
+.d-none {
+    display: none;
 }

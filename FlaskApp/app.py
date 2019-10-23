@@ -1,6 +1,8 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request
+from datetime import datetime
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
@@ -221,7 +223,51 @@ def p50_error_contract_code():
     
 @app.route('/p51-sent-email-confirmation')
 def p51_sent_email_confirmation():
-    return render_template('p51-sent-email-confirmation.html')               
-                                  					
+    return render_template('p51-sent-email-confirmation.html') 
+     
+@app.route('/keyboard')
+def keyboard():
+    return render_template('keyboard.html')
+
+@app.route('/p52-email-form')
+def p52_email_form():
+    return render_template('p52-email-form.html') 
+
+@app.route('/p59-vipps-phone-number')
+def p59_vipps_phone_number():
+    return render_template('p59-vipps-phone-number.html')
+
+@app.route('/p60-no-tank-available')
+def p60_no_tank_available():
+    return render_template('p60-no-tank-available.html')   
+                                 
+@app.route('/send_val',methods=['POST'])
+def send_val():
+    code=request.args.get('value')
+    print('ascii code',code)
+    if(code.isdigit()):
+		if(code == '8211'):
+			f = open("keayboard_log.txt", "a")
+			f.write(str(datetime.now())+"= ")
+			f.write("- ,")
+			f.write("\n")
+			f.close()
+		else:	
+		  char = chr(int(code))
+		  print('ascci character', char)
+		  f = open("keayboard_log.txt", "a")
+		  f.write(str(datetime.now())+"= ")
+		  f.write(char+",")
+		  f.write("\n")
+		  f.close()
+    else:
+	  f = open("keayboard_log.txt", "a")
+	  f.write(str(datetime.now())+"= ")
+	  f.write(code+",")
+	  f.write("\n")
+	  f.close()
+    return 'OK'
+
+                                        					
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, threaded=True)
