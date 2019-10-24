@@ -8,6 +8,18 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="address=no">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+    <script language="javascript">
+
+    window.onload = () => {
+
+  // redirect after 10 sec
+  setTimeout(() => {
+
+    window.location.href = "http://localhost:5000/";
+  }, 10000)
+
+}
+    </script>
 </head>
 <body class="no-js">
     <main class="main-global screen-intro">
